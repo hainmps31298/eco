@@ -1,0 +1,403 @@
+.logo {
+    font-weight: bolder;
+    font-size: 1.8rem;
+    text-align: center;
+    color: black;
+}
+
+.categories-section img {
+    width: 80px;
+    height: 80px;
+}
+
+.categories-section .text-center {
+    flex-shrink: 0;
+    width: 120px;
+}
+
+.categories-section .text-center div {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.banner-section img {
+    max-width: 400px;
+}
+
+.header-menu {
+    border-bottom: 2px solid #eee;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.dropdown-menu {
+    font-size: 0.9rem;
+}
+
+.secondary-nav {
+    margin-top: 15px;
+}
+
+.main-nav {
+    flex: 1;
+}
+
+.header-menu ul.nav {
+    justify-content: flex-start;
+}
+
+.header-menu .logo {
+    margin: 0 auto;
+}
+
+.header-menu .nav-link {
+    font-weight: bolder;
+}
+
+.categories-section {
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.menu-item {
+    text-decoration: none;
+    /* Bỏ dấu gạch dưới */
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: black;
+    /* Màu chữ trắng */
+    font-size: 70px;
+    /* Kích thước chữ rất lớn */
+    font-weight: bold;
+    /* Chữ đậm */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+    /* Hiệu ứng bóng mờ mạnh mẽ */
+    text-transform: uppercase;
+    /* Chữ in hoa */
+    letter-spacing: 3px;
+    /* Khoảng cách giữa các chữ */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    /* Thêm hiệu ứng chuyển động */
+    text-align: left;
+    /* Căn chữ bên trái */
+    width: 70%;
+    /* Giới hạn chiều rộng để chữ không quá dài */
+}
+
+.carousel-item:hover .carousel-caption {
+    transform: translateX(20px);
+    /* Chữ di chuyển sang phải khi hover */
+    opacity: 1;
+    /* Hiệu ứng tăng độ rõ ràng khi hover */
+}
+
+.carousel-indicators li {
+    background-color: #007bff;
+}
+
+.category-item {
+    position: relative;
+    overflow: hidden;
+    /* Ẩn phần ảnh tràn ra ngoài khung */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+    /* Khi hover, ảnh sẽ phóng to một chút */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Tăng độ bóng khi hover */
+}
+
+.category-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Đảm bảo ảnh tràn đầy khung mà không bị mất tỷ lệ */
+    transition: opacity 0.3s ease;
+    /* Hiệu ứng mờ dần khi hover */
+}
+
+.category-item:hover img {
+    opacity: 0.8;
+    /* Khi hover, ảnh sẽ mờ dần */
+}
+
+.category-title {
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    /* Màu chữ trắng */
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    /* Hiệu ứng bóng mờ cho chữ */
+
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    /* Đảm bảo hai ảnh nằm đối xứng */
+    gap: 20px;
+    /* Khoảng cách giữa hai ảnh */
+}
+
+.large-image {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.large-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.large-image:hover img {
+    opacity: 0.8;
+    /* Khi hover, ảnh sẽ mờ dần */
+}
+
+.large-image .title {
+    position: absolute;
+    bottom: 20px;
+    /* Đặt chữ ở dưới cùng của ảnh */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Căn giữa chữ theo chiều ngang */
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 10px;
+    /* Khoảng cách giữa chữ và cạnh dưới */
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Chiều cao cố định cho ảnh */
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Đảm bảo ảnh được cắt và giữ tỷ lệ mà không bị biến dạng */
+    transition: opacity 0.3s ease-in-out;
+    /* Hiệu ứng chuyển đổi mờ dần */
+}
+
+.product-image-hover {
+    position: absolute;
+    /* Đặt ảnh hover ở cùng vị trí với ảnh chính */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    /* Ẩn ảnh hover ban đầu */
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+    /* Ưu tiên cao hơn khi hover */
+}
+
+.product-card:hover .product-image {
+    opacity: 0;
+    /* Ẩn ảnh chính */
+}
+
+.product-card:hover .product-image-hover {
+    opacity: 1;
+    /* Hiển thị ảnh mới khi hover */
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #FF5722;
+    margin-top: 10px;
+}
+
+.product-color {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.product-color span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.feature-card {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #000; /* Khung viền đen */
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.feature-icon {
+    font-size: 50px;
+    color: #000; /* Màu đen đậm cho icon */
+    margin-bottom: 15px;
+}
+
+.feature-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000; /* Màu đen đậm cho tiêu đề */
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    font-size: 14px;
+    color: #333; /* Màu đen nhạt hơn cho mô tả */
+}
+/* Container của slider */
+.logo-slider {
+    display: flex;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    position: relative;
+}
+
+/* Track di chuyển */
+.logo-track {
+    display: flex;
+    animation: scroll-smooth 20s linear infinite; /* Chuyển động mượt */
+    position: relative;
+}
+
+/* Logo */
+.logo-item {
+    flex: 0 0 auto;
+    margin: 0 30px; /* Khoảng cách giữa logo */
+}
+
+.logo-item img {
+    max-height: 80px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-item img:hover {
+    transform: scale(1.1); /* Phóng to khi hover */
+}
+
+/* Hiệu ứng cuộn mượt */
+@keyframes scroll-smooth {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+ /* Footer styles */
+ .footer {
+    background-color: #333; /* Nền đen */
+    color: #fff; /* Chữ trắng */
+    padding: 50px 0;
+}
+
+.footer h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: #fff; /* Liên kết màu trắng */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #f8c04e; /* Hiệu ứng hover màu vàng */
+}
+
+.footer .form-control {
+    border: 0;
+    border-radius: 0;
+    padding: 10px;
+}
+
+.footer .btn-subscribe {
+    background-color: #f8c04e; /* Nút màu vàng */
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.footer .btn-subscribe:hover {
+    background-color: #e5b143;
+}
+
+.footer .bottom-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    color: #aaa;
+}
