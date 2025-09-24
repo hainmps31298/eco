@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Style.css/style.css">
+    <style>
+        /* Cấu trúc chung */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.product-detail-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.product-images {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.thumbnail-images {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.product-info {
+    flex: 2;
+    padding-left: 30px;
+}
+
+.product-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #FF5733;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.product-options {
+    margin-bottom: 20px;
+}
+
+.product-options label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.product-options select,
+.product-actions button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    width: 100%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.product-options select {
+    margin-bottom: 20px;
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+.color-option.selected {
+    border: 3px solid #000;
+}
+
+.product-actions button {
+    margin-top: 10px;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+}
+
+.product-actions button:hover {
+    background-color: #C70039;
+}
+
+.product-reviews {
+    margin-top: 40px;
+}
+
+.product-reviews h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.review {
+    margin-bottom: 20px;
+}
+
+.review p {
+    color: #555;
+}
+
+.rating {
+    color: #FFD700;
+}
+
+.write-review {
+    color: #FF5733;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.write-review:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-detail-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .product-info {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .main-image img {
+        max-width: 100%;
+    }
+
+    .thumbnail-images {
+        justify-content: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+     <!-- Header Navigation -->
+     <header class="header-menu py-3">
+        <div class="container d-flex align-items-center">
+            <ul class="nav me-auto">
+                <li class="nav-item"><button class="btn btn-link text-dark nav-link">Women</button></li>
+                <li class="nav-item"><button class="btn btn-link text-dark nav-link">Man</button></li>
+                <li class="nav-item"><button class="btn btn-link text-dark nav-link">Kids</button></li>
+                <li class="nav-item"><button class="btn btn-link text-dark nav-link">Find a Store</button></li>
+            </ul>
+            <div class="logo text-center">eco <span class="fw-normal">women</span></div>
+            <div class="icons ms-auto d-flex gap-3">
+                <button class="btn btn-link text-dark"><i class="bi bi-search"></i></button>
+                <button class="btn btn-link text-dark"><i class="bi bi-person"></i></button>
+                <button class="btn btn-link text-dark"><i class="bi bi-heart"></i></button>
+                <button class="btn btn-link text-dark"><i class="bi bi-cart"></i></button>
+            </div>
+        </div>
+        <div class="container secondary-nav">
+            <ul class="nav justify-content-center">
+                <li class="nav-item dropdown">
+                    <button class="btn btn-link nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Home
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Option 1</a></li>
+                        <li><a class="dropdown-item" href="#">Option 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="btn btn-link nav-link dropdown-toggle text-dark" id="shopDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Shop
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                        <li><a class="dropdown-item" href="#">Shop All</a></li>
+                        <li><a class="dropdown-item" href="#">Sale</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="btn btn-link nav-link dropdown-toggle text-dark" id="productsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+                        <li><a class="dropdown-item" href="#">Best Sellers</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="btn btn-link nav-link dropdown-toggle text-dark" id="productsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Pages
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+                        <li><a class="dropdown-item" href="#">Best Sellers</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><button class="btn btn-link nav-link text-dark">Blog</button></li>
+                <li class="nav-item"><button class="btn btn-link nav-link text-dark">Buy Now</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="product-detail-container">
+        <!-- Hình ảnh sản phẩm -->
+        <div class="product-images">
+            <div class="main-image">
+                <img src="ing/prda1.jpg" alt="Sản phẩm chính" id="main-img">
+            </div>
+            <div class="thumbnail-images">
+                <img src="ing/prda1.jpg" alt="Sản phẩm 1" class="thumbnail" onclick="changeImage('ing/prda1.jpg')">
+                <img src="ing/prda2.jpg" alt="Sản phẩm 2" class="thumbnail" onclick="changeImage('ing/prda2.jpg')">
+                <img src="ing/prda3.jpg" alt="Sản phẩm 3" class="thumbnail" onclick="changeImage('ing/prda3.jpg')">
+                <img src="ing/prda4.jpg" alt="Sản phẩm 4" class="thumbnail" onclick="changeImage('ing/prda4.jpg')">
+            </div>
+        </div>
+
+        <!-- Thông tin sản phẩm -->
+        <div class="product-info">
+            <h1 class="product-name">Ribbed Tank Top</h1>
+            <p class="product-price">$16.95</p>
+            <p class="product-description">
+                This ribbed tank top is the perfect addition to your wardrobe. Made with soft, breathable material that is perfect for summer.
+            </p>
+            
+            <div class="product-options">
+                <label for="size">Size:</label>
+                <select id="size" name="size">
+                    <option value="s">Small</option>
+                    <option value="m">Medium</option>
+                    <option value="l">Large</option>
+                    <option value="xl">Extra Large</option>
+                </select>
+            </div>
+
+            <div class="product-options">
+                <label for="color">Color:</label>
+                <div class="color-options">
+                    <span class="color-option" style="background-color: #FF5733;" onclick="selectColor('#FF5733')"></span>
+                    <span class="color-option" style="background-color: #C70039;" onclick="selectColor('#C70039')"></span>
+                    <span class="color-option" style="background-color: #900C3F;" onclick="selectColor('#900C3F')"></span>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Đánh giá sản phẩm -->
+        <div class="product-reviews">
+            <h2>Customer Reviews</h2>
+            <div class="review">
+                <p><strong>John Doe</strong> <span class="rating">⭐⭐⭐⭐⭐</span></p>
+                <p class="review-text">Great quality! The fit is perfect and it’s very comfortable.</p>
+            </div>
+            <div class="review">
+                <p><strong>Jane Smith</strong> <span class="rating">⭐⭐⭐⭐</span></p>
+                <p class="review-text">Nice tank top, but I wish the material was a little thicker.</p>
+            </div>
+            <a href="#" class="write-review">Write a review</a>
+        </div>
+    </div>
+
+    <script>
+        function changeImage(imgSrc) {
+            document.getElementById("main-img").src = imgSrc;
+        }
+
+        function selectColor(color) {
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => option.classList.remove('selected'));
+            const selectedColor = Array.from(colorOptions).find(option => option.style.backgroundColor === color);
+            selectedColor.classList.add('selected');
+        }
+   
+    </script>
+       
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>Address: 1234 Fashion Street, Suite 567,<br>New York, NY 10001</p>
+                <p>Email: <a href="mailto:info@fashionshop.com">info@fashionshop.com</a></p>
+                <p>Phone: <a href="tel:(212)555-1234">(212) 555-1234</a></p>
+                <a href="#" class="btn btn-outline-light btn-sm mt-3">Get Direction</a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Returns + Exchanges</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">FAQ’s</a></li>
+                </ul>
+            </div>
+
+            <!-- About and Email Sign-up -->
+            <div class="col-md-4">
+                <h5>About Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Compare</a></li>
+                    <li><a href="#">My Wishlist</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Visit Our Store</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <h5 class="mt-4">Sign Up for Email</h5>
+                <p>Sign up to get first dibs on new arrivals, sales, exclusive content, events, and more!</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter your email...">
+                    <button class="btn btn-subscribe">Subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Text -->
+        <div class="bottom-text">
+            <p>© 2024 Ecomus Store. All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+
+     <!-- Bootstrap 5 JS Bundle -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
